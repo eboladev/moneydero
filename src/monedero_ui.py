@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'monedero.ui'
 #
-# Created: Fri May 30 12:16:10 2014
+# Created: Fri May 30 14:14:58 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(800, 600)
+        MainWindow.resize(803, 600)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.verticalLayout_5 = QtGui.QVBoxLayout(self.centralwidget)
@@ -35,14 +35,16 @@ class Ui_MainWindow(object):
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
-        self.pushButton = QtGui.QPushButton(self.centralwidget)
-        self.pushButton.setObjectName(_fromUtf8("pushButton"))
-        self.horizontalLayout.addWidget(self.pushButton)
+        self.pushButton_apunte = QtGui.QPushButton(self.centralwidget)
+        self.pushButton_apunte.setObjectName(_fromUtf8("pushButton_apunte"))
+        self.horizontalLayout.addWidget(self.pushButton_apunte)
         self.verticalLayout_5.addLayout(self.horizontalLayout)
         self.horizontalLayout_2 = QtGui.QHBoxLayout()
         self.horizontalLayout_2.setObjectName(_fromUtf8("horizontalLayout_2"))
         self.verticalLayout_3 = QtGui.QVBoxLayout()
         self.verticalLayout_3.setObjectName(_fromUtf8("verticalLayout_3"))
+        spacerItem1 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem1)
         self.groupBox = QtGui.QGroupBox(self.centralwidget)
         self.groupBox.setObjectName(_fromUtf8("groupBox"))
         self.verticalLayout = QtGui.QVBoxLayout(self.groupBox)
@@ -54,6 +56,8 @@ class Ui_MainWindow(object):
         self.pushButton_3.setObjectName(_fromUtf8("pushButton_3"))
         self.verticalLayout.addWidget(self.pushButton_3)
         self.verticalLayout_3.addWidget(self.groupBox)
+        spacerItem2 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem2)
         self.groupBox_2 = QtGui.QGroupBox(self.centralwidget)
         self.groupBox_2.setObjectName(_fromUtf8("groupBox_2"))
         self.verticalLayout_2 = QtGui.QVBoxLayout(self.groupBox_2)
@@ -68,6 +72,8 @@ class Ui_MainWindow(object):
         self.pushButton_7.setObjectName(_fromUtf8("pushButton_7"))
         self.verticalLayout_2.addWidget(self.pushButton_7)
         self.verticalLayout_3.addWidget(self.groupBox_2)
+        spacerItem3 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout_3.addItem(spacerItem3)
         self.groupBox_3 = QtGui.QGroupBox(self.centralwidget)
         self.groupBox_3.setObjectName(_fromUtf8("groupBox_3"))
         self.verticalLayout_4 = QtGui.QVBoxLayout(self.groupBox_3)
@@ -75,6 +81,8 @@ class Ui_MainWindow(object):
         self.pushButton_8 = QtGui.QPushButton(self.groupBox_3)
         self.pushButton_8.setObjectName(_fromUtf8("pushButton_8"))
         self.verticalLayout_4.addWidget(self.pushButton_8)
+        spacerItem4 = QtGui.QSpacerItem(20, 40, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
+        self.verticalLayout_4.addItem(spacerItem4)
         self.verticalLayout_3.addWidget(self.groupBox_3)
         self.horizontalLayout_2.addLayout(self.verticalLayout_3)
         self.stackedWidget = QtGui.QStackedWidget(self.centralwidget)
@@ -151,7 +159,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "Monedero", None))
-        self.pushButton.setText(_translate("MainWindow", "+ Apunte", None))
+        self.pushButton_apunte.setText(_translate("MainWindow", "+ Apunte", None))
         self.groupBox.setTitle(_translate("MainWindow", "Cuentas", None))
         self.pushButton_4.setText(_translate("MainWindow", "Resumenes", None))
         self.pushButton_3.setText(_translate("MainWindow", "Apuntes", None))
@@ -167,7 +175,7 @@ class Ui_MainWindow(object):
         item = self.tableWidget.horizontalHeaderItem(1)
         item.setText(_translate("MainWindow", "Concepto", None))
         item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Vendedor / cobrador", None))
+        item.setText(_translate("MainWindow", "Vendedor / pagador", None))
         item = self.tableWidget.horizontalHeaderItem(3)
         item.setText(_translate("MainWindow", "Cantidad", None))
         item = self.tableWidget.horizontalHeaderItem(4)

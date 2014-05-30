@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'apuntes.ui'
 #
-# Created: Fri May 30 12:16:24 2014
+# Created: Fri May 30 14:14:45 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!

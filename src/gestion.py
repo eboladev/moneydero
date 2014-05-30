@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#  monedero.py
+#  gestion.py
 #
 #  Copyright 2014 Felipe Hommen <felibank@gmail.com>
 #
@@ -23,40 +23,26 @@
 #
 
 
-import sys
-from PyQt4 import QtCore
-from PyQt4.QtGui import QApplication, QMainWindow, QDialog
-from monedero_ui import Ui_MainWindow
-from apuntes_ui import Ui_Dialog
+import os
+import configparser
 
-
-
-class Main_ui(QMainWindow, Ui_MainWindow):
+    
+class Monedero():
     def __init__(self):
-        super(Main_ui, self).__init__()
-        self.setupUi(self)
-        
-        self.pushButton_apunte.clicked.connect(self.nuevo_apunte)
-        self.apuntes_dialog = Apuntes_ui()
-        
-        
-    def nuevo_apunte(self):
-        self.apuntes_dialog.exec_()
+        self.base_dir = os.path.expanduser('~/.monedero/')
+        try:
+            os.mkdir(self.base_dir)
+        self.cuentas = configparser.ConfigParser()
+        self.cuentas.read(os.path.join(self.base_dir, 'cuentas.mnd'))
+        self.categorias = configparser.ConfigParser()
+        self.categorias.read(os.path.join(self.base_dir, 'categorias.mnd'))
         
         
-class Apuntes_ui(QDialog, Ui_Dialog):
-    def __init__(self):
-        super(Apuntes_ui, self).__init__()
-        self.setupUi(self)
-        
-        
+
 
 
 def main():
-    app = QApplication(sys.argv)
-    ui = Main_ui()
-    ui.show()
-    sys.exit(app.exec_())
+    monedero = Monedero()
 
 if __name__ == "__main__":
     main()
