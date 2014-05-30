@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>572</width>
-    <height>495</height>
+    <width>828</width>
+    <height>698</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -30,28 +30,33 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QComboBox" name="comboBox_3">
-       <item>
-        <property name="text">
-         <string>Gasto</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Ingreso</string>
-        </property>
-       </item>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lineEdit">
-       <property name="placeholderText">
-        <string>Cantidad</string>
+      <widget class="QPushButton" name="pushButton_gasto">
+       <property name="text">
+        <string>Gasto</string>
        </property>
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox">
+      <widget class="QDoubleSpinBox" name="doubleSpinBox">
+       <property name="wrapping">
+        <bool>false</bool>
+       </property>
+       <property name="buttonSymbols">
+        <enum>QAbstractSpinBox::NoButtons</enum>
+       </property>
+       <property name="specialValueText">
+        <string/>
+       </property>
+       <property name="accelerated">
+        <bool>false</bool>
+       </property>
+       <property name="maximum">
+        <double>999999.989999999990687</double>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QComboBox" name="comboBox_cuenta">
        <item>
         <property name="text">
          <string>Efectivo</string>
@@ -77,7 +82,10 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_2">
      <item>
-      <widget class="QComboBox" name="comboBox_2">
+      <widget class="QComboBox" name="comboBox_categoria">
+       <property name="editable">
+        <bool>false</bool>
+       </property>
        <item>
         <property name="text">
          <string>Categoria</string>
@@ -86,7 +94,10 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_4">
+      <widget class="QComboBox" name="comboBox_vendedor">
+       <property name="editable">
+        <bool>true</bool>
+       </property>
        <item>
         <property name="text">
          <string>Vendedor</string>
@@ -95,12 +106,16 @@
       </widget>
      </item>
      <item>
-      <widget class="QDateEdit" name="dateEdit"/>
+      <widget class="QDateEdit" name="dateEdit_fecha">
+       <property name="calendarPopup">
+        <bool>true</bool>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
    <item>
-    <widget class="QLineEdit" name="lineEdit_2">
+    <widget class="QLineEdit" name="lineEdit_concepto">
      <property name="placeholderText">
       <string>Concepto</string>
      </property>
@@ -124,16 +139,30 @@
      <property name="title">
       <string>Garantia</string>
      </property>
-     <layout class="QVBoxLayout" name="verticalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
       <item>
-       <widget class="QPushButton" name="pushButton">
-        <property name="text">
-         <string>Adjuntos</string>
-        </property>
-       </widget>
+       <layout class="QVBoxLayout" name="verticalLayout">
+        <item>
+         <widget class="QDateEdit" name="dateEdit_garantia">
+          <property name="buttonSymbols">
+           <enum>QAbstractSpinBox::UpDownArrows</enum>
+          </property>
+          <property name="calendarPopup">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_adjuntos">
+          <property name="text">
+           <string>Archivos adjuntos</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
       </item>
       <item>
-       <widget class="QDateEdit" name="dateEdit_2"/>
+       <widget class="QListWidget" name="listWidget"/>
       </item>
      </layout>
     </widget>
@@ -154,7 +183,7 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
      <item>
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="pushButton_cancelar">
        <property name="text">
         <string>Cancelar</string>
        </property>
@@ -174,7 +203,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButton_guardar">
        <property name="text">
         <string>Guardar</string>
        </property>

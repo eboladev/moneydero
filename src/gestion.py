@@ -25,24 +25,32 @@
 
 import os
 import configparser
+import uuid
 
+base_dir = os.path.expanduser('~/.monedero')
+try:
+    os.mkdir(base_dir)
+except:
+    pass
+
+cuentas = configparser.ConfigParser()
+cuentas.read(os.path.join(base_dir, 'cuentas.mnd'))
+
+categorias = configparser.ConfigParser()
+categorias.read(os.path.join(base_dir, 'categorias.mnd'))
+
+apuntes = configparser.ConfigParser()
+apuntes.read(os.path.join(base_dir,  'apuntes.mnd'))
+        
+
+def apunta(apunte):
+    apuntes[uuid.uuid1()] = apunte
+    with open(os.path.join(base_dir, 'apuntes.mnd'), 'w') as f:
+        apuntes.write(f)
     
-class Monedero():
-    def __init__(self):
-        self.base_dir = os.path.expanduser('~/.monedero/')
-        try:
-            os.mkdir(self.base_dir)
-        self.cuentas = configparser.ConfigParser()
-        self.cuentas.read(os.path.join(self.base_dir, 'cuentas.mnd'))
-        self.categorias = configparser.ConfigParser()
-        self.categorias.read(os.path.join(self.base_dir, 'categorias.mnd'))
-        
-        
-
-
 
 def main():
-    monedero = Monedero()
+    pass
 
 if __name__ == "__main__":
     main()

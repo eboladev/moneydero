@@ -28,7 +28,7 @@ from PyQt4 import QtCore
 from PyQt4.QtGui import QApplication, QMainWindow, QDialog
 from monedero_ui import Ui_MainWindow
 from apuntes_ui import Ui_Dialog
-
+import gestion
 
 
 class Main_ui(QMainWindow, Ui_MainWindow):
@@ -49,6 +49,18 @@ class Apuntes_ui(QDialog, Ui_Dialog):
         super(Apuntes_ui, self).__init__()
         self.setupUi(self)
         
+        self.pushButton_guardar.clicked.connect(self.guardar)
+        
+    def guardar(self):
+        apunte = {
+            'Fecha': '/'.join([str(self.dateEdit_fecha.date().year()), str(self.dateEdit_fecha.date().month()), str(self.dateEdit_fecha.date().day())]), 
+            'Cantidad': self.doubleSpinBox.value(),
+            'Concepto': str(self.lineEdit_concepto.text()), 
+            'Cuenta': str(self.comboBox_cuenta.currentText()), 
+            'Categoria': str(self.comboBox_categoria.currentText()),
+            'Socio': str(self.comboBox_vendedor.currentText())
+            }
+        gestion.apunta(apunte)
         
 
 
