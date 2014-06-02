@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'apuntes.ui'
 #
-# Created: Fri May 30 21:09:37 2014
+# Created: Mon Jun  2 09:23:04 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -41,6 +41,7 @@ class Ui_Dialog(object):
         self.doubleSpinBox.setButtonSymbols(QtGui.QAbstractSpinBox.NoButtons)
         self.doubleSpinBox.setSpecialValueText(_fromUtf8(""))
         self.doubleSpinBox.setAccelerated(False)
+        self.doubleSpinBox.setMinimum(0.0)
         self.doubleSpinBox.setMaximum(999999.99)
         self.doubleSpinBox.setObjectName(_fromUtf8("doubleSpinBox"))
         self.horizontalLayout.addWidget(self.doubleSpinBox)
@@ -112,6 +113,7 @@ class Ui_Dialog(object):
     def retranslateUi(self, Dialog):
         Dialog.setWindowTitle(_translate("Dialog", "Introducir apunte", None))
         self.pushButton_gasto.setText(_translate("Dialog", "Gasto", None))
+        self.doubleSpinBox.setPrefix(_translate("Dialog", "-", None))
         self.comboBox_cuenta.setItemText(0, _translate("Dialog", "Efectivo", None))
         self.comboBox_categoria.setItemText(0, _translate("Dialog", "Categoria", None))
         self.comboBox_vendedor.setItemText(0, _translate("Dialog", "Vendedor", None))

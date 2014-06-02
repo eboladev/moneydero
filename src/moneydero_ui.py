@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'monedero.ui'
+# Form implementation generated from reading ui file 'moneydero.ui'
 #
-# Created: Fri May 30 14:14:58 2014
+# Created: Mon Jun  2 09:19:22 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -26,7 +26,7 @@ except AttributeError:
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
-        MainWindow.resize(803, 600)
+        MainWindow.resize(876, 600)
         self.centralwidget = QtGui.QWidget(MainWindow)
         self.centralwidget.setObjectName(_fromUtf8("centralwidget"))
         self.verticalLayout_5 = QtGui.QVBoxLayout(self.centralwidget)
@@ -95,21 +95,16 @@ class Ui_MainWindow(object):
         self.groupBox_4.setObjectName(_fromUtf8("groupBox_4"))
         self.verticalLayout_6 = QtGui.QVBoxLayout(self.groupBox_4)
         self.verticalLayout_6.setObjectName(_fromUtf8("verticalLayout_6"))
-        self.tableWidget = QtGui.QTableWidget(self.groupBox_4)
-        self.tableWidget.setObjectName(_fromUtf8("tableWidget"))
-        self.tableWidget.setColumnCount(5)
-        self.tableWidget.setRowCount(0)
-        item = QtGui.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(0, item)
-        item = QtGui.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(1, item)
-        item = QtGui.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(2, item)
-        item = QtGui.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(3, item)
-        item = QtGui.QTableWidgetItem()
-        self.tableWidget.setHorizontalHeaderItem(4, item)
-        self.verticalLayout_6.addWidget(self.tableWidget)
+        self.scrollArea = QtGui.QScrollArea(self.groupBox_4)
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollArea.setObjectName(_fromUtf8("scrollArea"))
+        self.scrollAreaWidgetContents = QtGui.QWidget()
+        self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 667, 459))
+        self.scrollAreaWidgetContents.setObjectName(_fromUtf8("scrollAreaWidgetContents"))
+        self.layout_registro = QtGui.QVBoxLayout(self.scrollAreaWidgetContents)
+        self.layout_registro.setObjectName(_fromUtf8("layout_registro"))
+        self.scrollArea.setWidget(self.scrollAreaWidgetContents)
+        self.verticalLayout_6.addWidget(self.scrollArea)
         self.verticalLayout_7.addWidget(self.groupBox_4)
         self.horizontalLayout_3 = QtGui.QHBoxLayout()
         self.horizontalLayout_3.setObjectName(_fromUtf8("horizontalLayout_3"))
@@ -158,7 +153,7 @@ class Ui_MainWindow(object):
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
-        MainWindow.setWindowTitle(_translate("MainWindow", "Monedero", None))
+        MainWindow.setWindowTitle(_translate("MainWindow", "Moneydero", None))
         self.pushButton_apunte.setText(_translate("MainWindow", "+ Apunte", None))
         self.groupBox.setTitle(_translate("MainWindow", "Cuentas", None))
         self.pushButton_4.setText(_translate("MainWindow", "Resumenes", None))
@@ -170,16 +165,6 @@ class Ui_MainWindow(object):
         self.groupBox_3.setTitle(_translate("MainWindow", "Configuración", None))
         self.pushButton_8.setText(_translate("MainWindow", "Configuración", None))
         self.groupBox_4.setTitle(_translate("MainWindow", "Ingresos y gastos de hoy", None))
-        item = self.tableWidget.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "Fecha", None))
-        item = self.tableWidget.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Concepto", None))
-        item = self.tableWidget.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Vendedor / pagador", None))
-        item = self.tableWidget.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Cantidad", None))
-        item = self.tableWidget.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Saldo", None))
         self.combo_orden.setItemText(0, _translate("MainWindow", "Más recientes", None))
         self.combo_orden.setItemText(1, _translate("MainWindow", "Más antiguos", None))
         self.combo_orden.setItemText(2, _translate("MainWindow", "Mayor importe", None))

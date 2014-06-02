@@ -25,9 +25,10 @@
 
 import os
 import configparser
+import datetime
 import uuid
 
-base_dir = os.path.expanduser('~/.monedero')
+base_dir = os.path.expanduser('~/.moneydero')
 try:
     os.mkdir(base_dir)
 except:
@@ -48,6 +49,18 @@ def apunta(apunte):
     with open(os.path.join(base_dir, 'apuntes.mnd'), 'w') as f:
         apuntes.write(f)
     
+def lista_apuntes(filtro):
+    respuesta = set()
+    from_date = filtro['fecha_desde'] - datetime.timedelta(days=1)
+    to_date = filtro['fecha_hasta'] + datetime.timedelta(days=1)
+    for apunte in apuntes:
+        if apunte == 'DEFAULT':
+            continue
+        fecha = datetime.datetime.strptime(apuntes[apunte]['fecha'], '%Y-%m-%d').date()
+        if from_date < fecha and fecha < to_date:
+            respuesta.update({apunte})
+    return respuesta
+
 
 def main():
     pass

@@ -50,6 +50,12 @@
        <property name="accelerated">
         <bool>false</bool>
        </property>
+       <property name="prefix">
+        <string>-</string>
+       </property>
+       <property name="minimum">
+        <double>0.000000000000000</double>
+       </property>
        <property name="maximum">
         <double>999999.989999999990687</double>
        </property>

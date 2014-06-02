@@ -6,12 +6,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>803</width>
+    <width>876</width>
     <height>600</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Monedero</string>
+   <string>Moneydero</string>
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_5">
@@ -180,32 +180,21 @@
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_6">
              <item>
-              <widget class="QTableWidget" name="tableWidget">
-               <column>
-                <property name="text">
-                 <string>Fecha</string>
+              <widget class="QScrollArea" name="scrollArea">
+               <property name="widgetResizable">
+                <bool>true</bool>
+               </property>
+               <widget class="QWidget" name="scrollAreaWidgetContents">
+                <property name="geometry">
+                 <rect>
+                  <x>0</x>
+                  <y>0</y>
+                  <width>667</width>
+                  <height>459</height>
+                 </rect>
                 </property>
-               </column>
-               <column>
-                <property name="text">
-                 <string>Concepto</string>
-                </property>
-               </column>
-               <column>
-                <property name="text">
-                 <string>Vendedor / pagador</string>
-                </property>
-               </column>
-               <column>
-                <property name="text">
-                 <string>Cantidad</string>
-                </property>
-               </column>
-               <column>
-                <property name="text">
-                 <string>Saldo</string>
-                </property>
-               </column>
+                <layout class="QVBoxLayout" name="layout_registro"/>
+               </widget>
               </widget>
              </item>
             </layout>
