@@ -26,10 +26,10 @@
 import sys
 import datetime
 from PyQt4 import QtCore
-from PyQt4.QtGui import QApplication, QMainWindow, QDialog,  QWidget
+from PyQt4.QtGui import QApplication, QMainWindow, QDialog, QFrame
 from moneydero_ui import Ui_MainWindow
 from apuntes_ui import Ui_Dialog
-from registro_ui import Ui_Form
+from registro_ui import Ui_Frame
 import gestion
 
 
@@ -47,7 +47,7 @@ class Main_ui(QMainWindow, Ui_MainWindow):
         self.pushButton_apunte.clicked.connect(self.nuevo_apunte)
         self.apuntes_dialog = Apuntes_ui()
         
-        self.update_registro
+        self.update_registro()
         
         
     def nuevo_apunte(self):
@@ -55,6 +55,8 @@ class Main_ui(QMainWindow, Ui_MainWindow):
         self.update_registro()
         
     def update_registro(self):
+        for i in reversed(range(self.layout_registro.count())):
+            self.layout_registro.itemAt(i).widget().close()
         apuntes = gestion.lista_apuntes(self.filtro)
         for apunte in apuntes:
             print('Apunte')
@@ -68,6 +70,7 @@ class Apuntes_ui(QDialog, Ui_Dialog):
         self.setupUi(self)
         self.dateEdit_fecha.setDateTime(QtCore.QDateTime.currentDateTime())
         self.pushButton_guardar.clicked.connect(self.guardar)
+        self.pushButton_gasto.clicked.connect(self.toggle_gasto)
         
     def guardar(self):
         year = self.dateEdit_fecha.date().year()
@@ -85,7 +88,15 @@ class Apuntes_ui(QDialog, Ui_Dialog):
         gestion.apunta(apunte)
         self.close()
         
-class Registro_ui(QWidget,  Ui_Form):
+    def toggle_gasto(self):
+        if str(self.pushButton_gasto.text()) == 'Gasto':
+            self.pushButton_gasto.setText('Ingreso')
+            self.doubleSpinBox.setPrefix('+')
+        else:
+            self.pushButton_gasto.setText('Gasto')
+            self.doubleSpinBox.setPrefix('-')
+        
+class Registro_ui(QFrame,  Ui_Frame):
     def __init__(self, apunte):
         super(Registro_ui,  self).__init__()
         self.setupUi(self)
@@ -96,6 +107,8 @@ class Registro_ui(QWidget,  Ui_Form):
         self.label_fecha.setText('{dia} de {mes} de {year}'.format(
             dia=fecha[2],  mes=datetime.date(1, int(fecha[1]), 1).strftime('%B'),  year=fecha[0]))
         self.label_cantidad.setText(gestion.apuntes[apunte]['cantidad'])
+        if str(self.label_cantidad.text())[0] == '-':
+            self.label_cantidad.setStyleSheet('color: red')
         self.label_cuenta.setText(gestion.apuntes[apunte]['cuenta'])
     
 
