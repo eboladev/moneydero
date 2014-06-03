@@ -45,6 +45,7 @@ class Main_ui(QMainWindow, Ui_MainWindow):
         self.filtro['ig'] = 'Ingresos y gastos'
         
         self.pushButton_apunte.clicked.connect(self.nuevo_apunte)
+        self.combo_T.activated.connect(self.cambio_T)
         self.apuntes_dialog = Apuntes_ui()
         
         self.update_registro()
@@ -63,6 +64,39 @@ class Main_ui(QMainWindow, Ui_MainWindow):
             entrada = Registro_ui(apunte)
             self.layout_registro.addWidget(entrada)
         
+    def cambio_T(self):
+        texto = str(self.combo_T.currentText())
+        hoy = datetime.date.today()
+        dia_semana = hoy.weekday()
+        dia_mes = hoy.day
+        if texto == 'Hoy':
+            self.filtro['fecha_desde'] = hoy
+            self.filtro['fecha_hasta'] = hoy
+        elif texto == 'Esta semana':
+            self.filtro['fecha_desde'] = hoy - datetime.timedelta(days=dia_semana)
+            self.filtro['fecha_hasta'] = hoy + datetime.timedelta(days=6 - dia_semana)
+        elif texto == 'Últimos 7 dias':
+            self.filtro['fecha_desde'] = hoy - datetime.timedelta(days=6)
+            self.filtro['fecha_hasta'] = hoy
+        elif texto == 'Este mes':
+            self.filtro['fecha_desde'] = hoy - datetime.timedelta(days=dia_mes - 1)
+            mes = hoy.month
+            year = hoy.year
+            if mes == 12:
+                mes = 1
+                year = year + 1
+            else:
+                mes = mes + 1
+            self.filtro['fecha_hasta'] = datetime.date(year, mes,  1) - datetime.timedelta(days=1)
+        elif texto == 'Últimos 30 dias':
+            self.flitro['fecha_desde'] = hoy - datetime.timedelta(days=30)
+            self.flitro['fecha_hasta'] = hoy
+        elif texto == 'Este año':
+            self.filtro['fecha_desde'] = datetime.date(year,  1, 1)
+            self.filtro['fecha_hasta'] = datetime.date(year,  12,  31)
+        elif texto == 'Todo':
+            self.filtro['fecha_desde'] = None
+            self.flitro['fecha_hasta'] = None
         
 class Apuntes_ui(QDialog, Ui_Dialog):
     def __init__(self):

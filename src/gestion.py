@@ -67,12 +67,16 @@ def apunta(apunte):
     
 def lista_apuntes(filtro):
     respuesta = []
-    from_date = filtro['fecha_desde'] - datetime.timedelta(days=1)
-    to_date = filtro['fecha_hasta'] + datetime.timedelta(days=1)
-    for apunte in apuntes:
-        fecha = datetime.datetime.strptime(apuntes[apunte]['fecha'], '%Y-%m-%d').date()
-        if from_date < fecha and fecha < to_date:
+    if filtro['fecha_desde'] is None or filtro['fecha_hasta'] is None:
+        for apunte in apuntes:
             respuesta.append(apunte)
+    else:
+        from_date = filtro['fecha_desde'] - datetime.timedelta(days=1)
+        to_date = filtro['fecha_hasta'] + datetime.timedelta(days=1)
+        for apunte in apuntes:
+            fecha = datetime.datetime.strptime(apuntes[apunte]['fecha'], '%Y-%m-%d').date()
+            if from_date < fecha and fecha < to_date:
+                respuesta.append(apunte)
     return respuesta
 
 

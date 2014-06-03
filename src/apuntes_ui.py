@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'apuntes.ui'
 #
-# Created: Tue Jun  3 12:00:32 2014
+# Created: Tue Jun  3 12:46:53 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,11 +33,11 @@ class Ui_Dialog(object):
         self.verticalLayout_2.addItem(spacerItem)
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem1)
         self.pushButton_gasto = QtGui.QPushButton(Dialog)
         self.pushButton_gasto.setObjectName(_fromUtf8("pushButton_gasto"))
         self.horizontalLayout.addWidget(self.pushButton_gasto)
-        spacerItem1 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem1)
         self.doubleSpinBox = QtGui.QDoubleSpinBox(Dialog)
         self.doubleSpinBox.setWrapping(False)
         self.doubleSpinBox.setButtonSymbols(QtGui.QAbstractSpinBox.NoButtons)
@@ -47,12 +47,12 @@ class Ui_Dialog(object):
         self.doubleSpinBox.setMaximum(999999.99)
         self.doubleSpinBox.setObjectName(_fromUtf8("doubleSpinBox"))
         self.horizontalLayout.addWidget(self.doubleSpinBox)
-        spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
-        self.horizontalLayout.addItem(spacerItem2)
         self.comboBox_cuenta = QtGui.QComboBox(Dialog)
         self.comboBox_cuenta.setObjectName(_fromUtf8("comboBox_cuenta"))
         self.comboBox_cuenta.addItem(_fromUtf8(""))
         self.horizontalLayout.addWidget(self.comboBox_cuenta)
+        spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
+        self.horizontalLayout.addItem(spacerItem2)
         self.verticalLayout_2.addLayout(self.horizontalLayout)
         spacerItem3 = QtGui.QSpacerItem(20, 63, QtGui.QSizePolicy.Minimum, QtGui.QSizePolicy.Expanding)
         self.verticalLayout_2.addItem(spacerItem3)

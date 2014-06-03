@@ -30,13 +30,6 @@
    <item>
     <layout class="QHBoxLayout" name="horizontalLayout">
      <item>
-      <widget class="QPushButton" name="pushButton_gasto">
-       <property name="text">
-        <string>Gasto</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <spacer name="horizontalSpacer_2">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -48,6 +41,13 @@
         </size>
        </property>
       </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_gasto">
+       <property name="text">
+        <string>Gasto</string>
+       </property>
+      </widget>
      </item>
      <item>
       <widget class="QDoubleSpinBox" name="doubleSpinBox">
@@ -75,6 +75,15 @@
       </widget>
      </item>
      <item>
+      <widget class="QComboBox" name="comboBox_cuenta">
+       <item>
+        <property name="text">
+         <string>Efectivo</string>
+        </property>
+       </item>
+      </widget>
+     </item>
+     <item>
       <spacer name="horizontalSpacer_3">
        <property name="orientation">
         <enum>Qt::Horizontal</enum>
@@ -86,15 +95,6 @@
         </size>
        </property>
       </spacer>
-     </item>
-     <item>
-      <widget class="QComboBox" name="comboBox_cuenta">
-       <item>
-        <property name="text">
-         <string>Efectivo</string>
-        </property>
-       </item>
-      </widget>
      </item>
     </layout>
    </item>
