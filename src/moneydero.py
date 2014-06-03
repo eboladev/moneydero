@@ -75,6 +75,7 @@ class Apuntes_ui(QDialog, Ui_Dialog):
         self.pushButton_guardar.clicked.connect(self.guardar)
         self.pushButton_cancelar.clicked.connect(self.close)
         self.pushButton_gasto.clicked.connect(self.toggle_gasto)
+        self.comboBox_categoria.activated.connect(self.nueva_categoria)
         
     def guardar(self):
         year = self.dateEdit_fecha.date().year()
@@ -100,6 +101,27 @@ class Apuntes_ui(QDialog, Ui_Dialog):
         else:
             self.pushButton_gasto.setText('Gasto')
             self.doubleSpinBox.setPrefix('-')
+            
+    def nueva_categoria(self,  i):
+        texto = str(self.comboBox_categoria.currentText())
+        print(texto)
+        if texto == 'Añadir categoria':
+            self.comboBox_categoria.setEditable(True)
+        else:
+            if self.comboBox_categoria.isEditable():
+                self.comboBox_categoria.setEditable(False)
+                nuevo = str(self.comboBox_categoria.currentText())
+                self.comboBox_categoria.setEditable(False)
+                lista = [self.comboBox_categoria.itemText(c)
+                         for c in range(self.comboBox_categoria.count())]
+                lista.remove('Añadir categoria')
+                lista.sort()
+                self.comboBox_categoria.clear()
+                for c in lista:
+                    self.comboBox_categoria.addItem(c)
+                self.comboBox_categoria.addItem('Añadir categoria')
+                self.comboBox_categoria.setCurrentIndex(lista.index(nuevo))
+                
         
 class Registro_ui(QFrame,  Ui_Frame):
     def __init__(self, apunte):

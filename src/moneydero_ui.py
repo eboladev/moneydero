@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'moneydero.ui'
 #
-# Created: Mon Jun  2 09:19:22 2014
+# Created: Tue Jun  3 11:34:59 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -33,6 +33,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_5.setObjectName(_fromUtf8("verticalLayout_5"))
         self.horizontalLayout = QtGui.QHBoxLayout()
         self.horizontalLayout.setObjectName(_fromUtf8("horizontalLayout"))
+        self.pushButton_config = QtGui.QPushButton(self.centralwidget)
+        self.pushButton_config.setObjectName(_fromUtf8("pushButton_config"))
+        self.horizontalLayout.addWidget(self.pushButton_config)
         spacerItem = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.pushButton_apunte = QtGui.QPushButton(self.centralwidget)
@@ -154,6 +157,7 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(_translate("MainWindow", "Moneydero", None))
+        self.pushButton_config.setText(_translate("MainWindow", "Configuración", None))
         self.pushButton_apunte.setText(_translate("MainWindow", "+ Apunte", None))
         self.groupBox.setTitle(_translate("MainWindow", "Cuentas", None))
         self.pushButton_4.setText(_translate("MainWindow", "Resumenes", None))
