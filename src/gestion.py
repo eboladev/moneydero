@@ -24,7 +24,7 @@
 
 
 import os
-import configparser
+import json
 import datetime
 import uuid
 
@@ -34,31 +34,45 @@ try:
 except:
     pass
 
-cuentas = configparser.ConfigParser()
-cuentas.read(os.path.join(base_dir, 'cuentas.mnd'))
+#try:
+#    with open(os.path.join(base_dir, 'cuentas.mnd')) as f:
+#        cuentas = json.load(f)
+#except:
+#    cuentas = {'efectivo'}
 
-categorias = configparser.ConfigParser()
-categorias.read(os.path.join(base_dir, 'categorias.mnd'))
+#try:
+#    with open(os.path.join(base_dir, 'categorias.mnd')) as f:
+#        categorias = json.load(f)
+#except:
+#    categorias = {'Casa'}
+    
+categorias = set()
+cuentas = set()
+socios = set()
 
-apuntes = configparser.ConfigParser()
-apuntes.read(os.path.join(base_dir,  'apuntes.mnd'))
-        
+try:
+    with open(os.path.join(base_dir,  'apuntes.mnd'),  'r') as f:
+        apuntes = json.load(f)
+    for apunte in apuntes:
+        categorias.update({apuntes[apunte]['categoria']})
+        cuentas.update({apuntes[apunte]['cuenta']})
+        socios.update({apuntes[apunte]['socio']})
+except:
+    apuntes = {}
 
 def apunta(apunte):
-    apuntes[uuid.uuid1()] = apunte
+    apuntes[str(uuid.uuid1())] = apunte
     with open(os.path.join(base_dir, 'apuntes.mnd'), 'w') as f:
-        apuntes.write(f)
+        json.dump(apuntes,  f)
     
 def lista_apuntes(filtro):
-    respuesta = set()
+    respuesta = []
     from_date = filtro['fecha_desde'] - datetime.timedelta(days=1)
     to_date = filtro['fecha_hasta'] + datetime.timedelta(days=1)
     for apunte in apuntes:
-        if apunte == 'DEFAULT':
-            continue
         fecha = datetime.datetime.strptime(apuntes[apunte]['fecha'], '%Y-%m-%d').date()
         if from_date < fecha and fecha < to_date:
-            respuesta.update({apunte})
+            respuesta.append(apunte)
     return respuesta
 
 

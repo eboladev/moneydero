@@ -69,7 +69,11 @@ class Apuntes_ui(QDialog, Ui_Dialog):
         super(Apuntes_ui, self).__init__()
         self.setupUi(self)
         self.dateEdit_fecha.setDateTime(QtCore.QDateTime.currentDateTime())
+        for cuenta in gestion.cuentas:
+            self.comboBox_cuenta.addItem(cuenta)
+        
         self.pushButton_guardar.clicked.connect(self.guardar)
+        self.pushButton_cancelar.clicked.connect(self.close)
         self.pushButton_gasto.clicked.connect(self.toggle_gasto)
         
     def guardar(self):
@@ -85,6 +89,7 @@ class Apuntes_ui(QDialog, Ui_Dialog):
             'categoria': str(self.comboBox_categoria.currentText()),
             'socio': str(self.comboBox_vendedor.currentText())
             }
+        self.comboBox_vendedor.addItem(self.comboBox_vendedor.currentText())
         gestion.apunta(apunte)
         self.close()
         
