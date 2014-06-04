@@ -76,7 +76,8 @@ def lista_apuntes(filtro):
         for apunte in apuntes:
             fecha = datetime.datetime.strptime(apuntes[apunte]['fecha'], '%Y-%m-%d').date()
             if from_date < fecha and fecha < to_date:
-                respuesta.append(apunte)
+                if filtro['signo'] == apuntes[apunte]['cantidad'][0] or filtro['signo'] is None:
+                    respuesta.append(apunte)
     return respuesta
 
 

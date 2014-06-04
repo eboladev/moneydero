@@ -42,10 +42,12 @@ class Main_ui(QMainWindow, Ui_MainWindow):
         self.filtro['fecha_desde'] = datetime.date.today()
         self.filtro['fecha_hasta'] = datetime.date.today()
         self.filtro['cuentas'] = 'Todas'
+        self.filtro['signo'] = None
         self.filtro['ig'] = 'Ingresos y gastos'
         
         self.pushButton_apunte.clicked.connect(self.nuevo_apunte)
         self.combo_T.activated.connect(self.cambio_T)
+        self.combo_signo.activated.connect(self.cambio_signo)
         self.apuntes_dialog = Apuntes_ui()
         
         self.update_registro()
@@ -58,11 +60,25 @@ class Main_ui(QMainWindow, Ui_MainWindow):
     def update_registro(self):
         for i in reversed(range(self.layout_registro.count())):
             self.layout_registro.itemAt(i).widget().close()
+        msg = str(self.combo_signo.currentText()) + ' de ' + \
+                str(self.combo_T.currentText()).lower() + ' en ' + \
+                str(self.combo_cuenta.currentText())
+        self.groupBox_4.setTitle(msg)
         apuntes = gestion.lista_apuntes(self.filtro)
         for apunte in apuntes:
             print('Apunte')
             entrada = Registro_ui(apunte)
             self.layout_registro.addWidget(entrada)
+            
+    def cambio_signo(self):
+        texto = str(self.combo_signo.currentText())
+        if texto == 'Ingresos y gastos':
+            self.filtro['signo'] = None
+        elif texto == 'Ingresos':
+            self.filtro['signo'] = '+'
+        elif texto == 'Gastos':
+            self.filtro['signo'] = '-'
+        self.update_registro()
         
     def cambio_T(self):
         texto = str(self.combo_T.currentText())
@@ -75,7 +91,7 @@ class Main_ui(QMainWindow, Ui_MainWindow):
         elif texto == 'Esta semana':
             self.filtro['fecha_desde'] = hoy - datetime.timedelta(days=dia_semana)
             self.filtro['fecha_hasta'] = hoy + datetime.timedelta(days=6 - dia_semana)
-        elif texto == 'Últimos 7 dias':
+        elif texto == u'Últimos 7 dias':
             self.filtro['fecha_desde'] = hoy - datetime.timedelta(days=6)
             self.filtro['fecha_hasta'] = hoy
         elif texto == 'Este mes':
@@ -89,14 +105,15 @@ class Main_ui(QMainWindow, Ui_MainWindow):
                 mes = mes + 1
             self.filtro['fecha_hasta'] = datetime.date(year, mes,  1) - datetime.timedelta(days=1)
         elif texto == 'Últimos 30 dias':
-            self.flitro['fecha_desde'] = hoy - datetime.timedelta(days=30)
-            self.flitro['fecha_hasta'] = hoy
+            self.filtro['fecha_desde'] = hoy - datetime.timedelta(days=30)
+            self.filtro['fecha_hasta'] = hoy
         elif texto == 'Este año':
             self.filtro['fecha_desde'] = datetime.date(year,  1, 1)
             self.filtro['fecha_hasta'] = datetime.date(year,  12,  31)
         elif texto == 'Todo':
             self.filtro['fecha_desde'] = None
             self.flitro['fecha_hasta'] = None
+        self.update_registro()
         
 class Apuntes_ui(QDialog, Ui_Dialog):
     def __init__(self):

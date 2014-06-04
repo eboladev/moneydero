@@ -276,7 +276,7 @@
              <widget class="QComboBox" name="combo_cuenta">
               <item>
                <property name="text">
-                <string>Todas las cuentas</string>
+                <string>todas las cuentas</string>
                </property>
               </item>
              </widget>
