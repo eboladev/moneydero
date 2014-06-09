@@ -63,7 +63,7 @@ except:
 def apunta(apunte):
     apuntes[str(uuid.uuid1())] = apunte
     with open(os.path.join(base_dir, 'apuntes.mnd'), 'w') as f:
-        json.dump(apuntes,  f)
+        json.dump(apuntes,  f,  indent=0)
     
 def lista_apuntes(filtro):
     respuesta = []

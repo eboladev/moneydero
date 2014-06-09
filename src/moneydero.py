@@ -44,12 +44,12 @@ class Main_ui(QMainWindow, Ui_MainWindow):
         self.filtro['cuentas'] = 'Todas'
         self.filtro['signo'] = None
         self.filtro['ig'] = 'Ingresos y gastos'
+        self.filtro['orden'] = 'reciente'
         
         self.pushButton_apunte.clicked.connect(self.nuevo_apunte)
         self.combo_T.activated.connect(self.cambio_T)
         self.combo_signo.activated.connect(self.cambio_signo)
         self.apuntes_dialog = Apuntes_ui()
-        
         self.update_registro()
         
         
@@ -120,8 +120,13 @@ class Apuntes_ui(QDialog, Ui_Dialog):
         super(Apuntes_ui, self).__init__()
         self.setupUi(self)
         self.dateEdit_fecha.setDateTime(QtCore.QDateTime.currentDateTime())
-        for cuenta in gestion.cuentas:
-            self.comboBox_cuenta.addItem(cuenta)
+        for c in sorted(gestion.categorias):
+            self.comboBox_categoria.addItem(c)
+        self.comboBox_categoria.addItem('Añadir categoria')
+        for s in sorted(gestion.socios):
+            self.comboBox_vendedor.addItem(s)
+        for c in sorted(gestion.cuentas):
+            self.comboBox_cuenta.addItem(c)
         
         self.pushButton_guardar.clicked.connect(self.guardar)
         self.pushButton_cancelar.clicked.connect(self.close)

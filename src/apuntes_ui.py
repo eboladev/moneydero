@@ -2,7 +2,7 @@
 
 # Form implementation generated from reading ui file 'apuntes.ui'
 #
-# Created: Tue Jun  3 12:46:53 2014
+# Created: Mon Jun  9 09:23:53 2014
 #      by: PyQt4 UI code generator 4.10.4
 #
 # WARNING! All changes made in this file will be lost!
@@ -49,7 +49,6 @@ class Ui_Dialog(object):
         self.horizontalLayout.addWidget(self.doubleSpinBox)
         self.comboBox_cuenta = QtGui.QComboBox(Dialog)
         self.comboBox_cuenta.setObjectName(_fromUtf8("comboBox_cuenta"))
-        self.comboBox_cuenta.addItem(_fromUtf8(""))
         self.horizontalLayout.addWidget(self.comboBox_cuenta)
         spacerItem2 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem2)
@@ -61,8 +60,6 @@ class Ui_Dialog(object):
         self.comboBox_categoria = QtGui.QComboBox(Dialog)
         self.comboBox_categoria.setEditable(False)
         self.comboBox_categoria.setObjectName(_fromUtf8("comboBox_categoria"))
-        self.comboBox_categoria.addItem(_fromUtf8(""))
-        self.comboBox_categoria.addItem(_fromUtf8(""))
         self.horizontalLayout_2.addWidget(self.comboBox_categoria)
         spacerItem4 = QtGui.QSpacerItem(40, 20, QtGui.QSizePolicy.Expanding, QtGui.QSizePolicy.Minimum)
         self.horizontalLayout_2.addItem(spacerItem4)
@@ -123,9 +120,6 @@ class Ui_Dialog(object):
         Dialog.setWindowTitle(_translate("Dialog", "Introducir apunte", None))
         self.pushButton_gasto.setText(_translate("Dialog", "Gasto", None))
         self.doubleSpinBox.setPrefix(_translate("Dialog", "-", None))
-        self.comboBox_cuenta.setItemText(0, _translate("Dialog", "Efectivo", None))
-        self.comboBox_categoria.setItemText(0, _translate("Dialog", "Casa", None))
-        self.comboBox_categoria.setItemText(1, _translate("Dialog", "Añadir categoria", None))
         self.comboBox_vendedor.setItemText(0, _translate("Dialog", "Vendedor", None))
         self.lineEdit_concepto.setPlaceholderText(_translate("Dialog", "Concepto", None))
         self.groupBox.setTitle(_translate("Dialog", "Garantia", None))

@@ -75,13 +75,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QComboBox" name="comboBox_cuenta">
-       <item>
-        <property name="text">
-         <string>Efectivo</string>
-        </property>
-       </item>
-      </widget>
+      <widget class="QComboBox" name="comboBox_cuenta"/>
      </item>
      <item>
       <spacer name="horizontalSpacer_3">
@@ -118,16 +112,6 @@
        <property name="editable">
         <bool>false</bool>
        </property>
-       <item>
-        <property name="text">
-         <string>Casa</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Añadir categoria</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item>
