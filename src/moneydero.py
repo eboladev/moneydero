@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 #
-#  monedero.py
+#  moneydero.py
 #
 #  Copyright 2014 Felipe Hommen <felibank@gmail.com>
 #
@@ -163,6 +163,7 @@ class Apuntes_ui(QDialog, Ui_Dialog):
         print(texto)
         if texto == 'Añadir categoria':
             self.comboBox_categoria.setEditable(True)
+            self.comboBox_categoria.lineEdit().selectAll()
         else:
             if self.comboBox_categoria.isEditable():
                 self.comboBox_categoria.setEditable(False)
@@ -193,6 +194,11 @@ class Registro_ui(QFrame,  Ui_Frame):
         if str(self.label_cantidad.text())[0] == '-':
             self.label_cantidad.setStyleSheet('color: red')
         self.label_cuenta.setText(gestion.apuntes[apunte]['cuenta'])
+        
+        #self.label_categoria.clicked.connect(self.resalta)
+        
+    def resalta(self):
+        self.setStyleSheet("QFrame { background-color: Red }")
     
 
 def main():
